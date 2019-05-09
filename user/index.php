@@ -4,7 +4,7 @@ require_once '../includes/main_inc.php';
 require_once '../includes/header.php';
 
 if ($auth->check()) {
-	
+
 
 }
 else {
@@ -35,7 +35,7 @@ function showGeneralForm() {
               <div class="row">
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <h3 class="panel-title">Bad Ass Panel</h3>
+                    <h3 class="panel-title">Cool Ass Panel</h3>
                   </div>
                   <div class="panel-body"> Dis be it </div>
                   <div class="panel-footer">Ty BOy</div>
