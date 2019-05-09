@@ -36,7 +36,7 @@ function showGeneralForm() {
                 <div class="panel panel-default">
                   <div class="panel-heading">
 
-                    <h3 class="panel-title">Cool Ass Panel</h3>
+                    <h3 class="panel-title">kick Ass Panel</h3>
 
                   </div>
                   <div class="panel-body"> Dis be it </div>
