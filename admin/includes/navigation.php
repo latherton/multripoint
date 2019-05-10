@@ -1,12 +1,12 @@
 
-<?php 
+<?php
 
 if ($auth->isLoggedIn()) {
     $loc='Home';
 	$homeBrand = '<a class="navbar-brand" href="'. $domainRoot .'/index.php">'. $loc .' </a>';
 	$menubar = '<li><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> '. $auth->getEmail().' <b class="caret"></b></a>
           <ul class="dropdown-menu">
-                <a href="/auth/userprofile.php"><i class="fa fa-fw fa-user"></i> Profile </a><br>
+                <a href="'. $domainRoot .'/auth/userprofile.php"><i class="fa fa-fw fa-user"></i> Profile </a><br>
                 <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a><br>
                 <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a><br>
            	<form action="" method="post" accept-charset="utf-8">
@@ -28,7 +28,7 @@ if ($auth->isLoggedIn()) {
 }
 else {
 	$homeBrand = '<label class="navbar-brand">'. $loc .' </label>';
-    $menubar = '	
+    $menubar = '
 		<li><a href="/rebuild/"><i class="fa fa-user"></i> Login </a></li>
 	';
 	$menuItems='';
@@ -73,7 +73,7 @@ text-decoration: underline;
     <div class="collapse navbar-collapse" id = "navbar-ex1-collapse">
       <ul class="nav navbar-right top-nav" >
         <?php echo $menubar;?>
-		
+
       </ul>
       <!--Menu Items These collapse to the responsive navigation menu on small screens -->
 		<?php echo $menuItems;?>

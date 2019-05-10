@@ -11,7 +11,7 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
-$db = new \PDO('mysql:dbname=login_app;host=127.0.0.1;charset=utf8mb4', 'root', '');
+$db = new \PDO('mysql:dbname=login_app;host=127.0.0.1;charset=utf8mb4', 'root', '', 'false');
 // or
 // $db = new \PDO('pgsql:dbname=php_auth;host=127.0.0.1;port=5432', 'postgres', 'monkey');
 // or
@@ -22,6 +22,7 @@ $auth = new \Delight\Auth\Auth($db);
 $result = \processRequestData($auth);
 $domainRoot = '/rebuild';
 $loc='Welcome';
+
 
 
 function processRequestData(\Delight\Auth\Auth $auth) {
@@ -69,10 +70,10 @@ function processRequestData(\Delight\Auth\Auth $auth) {
     </div>';
 				}
 				catch (\Delight\Auth\EmailNotVerifiedException $e) {
-					return 'email address not verified';
+					return 'Email Address not verified';
 				}
 				catch (\Delight\Auth\TooManyRequestsException $e) {
-					return 'too many requests';
+					return 'too masny requests';
 				}
 			}
 			else if ($_POST['action'] === 'register') {
@@ -114,13 +115,13 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 					return 'invalid password';
 				}
 				catch (\Delight\Auth\UserAlreadyExistsException $e) {
-					return 'email address already exists';
+					return 'Email Address already exists';
 				}
 				catch (\Delight\Auth\DuplicateUsernameException $e) {
 					return 'username already exists';
 				}
 				catch (\Delight\Auth\TooManyRequestsException $e) {
-					return 'too many requests';
+					return 'Too many requests';
 				}
 			}
 			else if ($_POST['action'] === 'confirmEmail') {
@@ -148,10 +149,10 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 					return 'token expired';
 				}
 				catch (\Delight\Auth\UserAlreadyExistsException $e) {
-					return 'email address already exists';
+					return 'Email Address already exists';
 				}
 				catch (\Delight\Auth\TooManyRequestsException $e) {
-					return 'too many requests';
+					return 'Too many requests';
 				}
 			}
 			else if ($_POST['action'] === 'resendConfirmationForEmail') {
@@ -176,7 +177,7 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 					return 'no request found';
 				}
 				catch (\Delight\Auth\TooManyRequestsException $e) {
-					return 'too many requests';
+					return 'Too many requests';
 				}
 			}
 			else if ($_POST['action'] === 'resendConfirmationForUserId') {
@@ -201,7 +202,7 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 					return 'no request found';
 				}
 				catch (\Delight\Auth\TooManyRequestsException $e) {
-					return 'too many requests';
+					return 'Too many requests';
 				}
 			}
 			else if ($_POST['action'] === 'forgotPassword') {
@@ -226,13 +227,13 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 					return 'invalid email address';
 				}
 				catch (\Delight\Auth\EmailNotVerifiedException $e) {
-					return 'email address not verified';
+					return 'Email Address not verified';
 				}
 				catch (\Delight\Auth\ResetDisabledException $e) {
 					return 'password reset is disabled';
 				}
 				catch (\Delight\Auth\TooManyRequestsException $e) {
-					return 'too many requests';
+					return 'Too many requests';
 				}
 			}
 			else if ($_POST['action'] === 'resetPassword') {
@@ -254,7 +255,7 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 					return 'invalid password';
 				}
 				catch (\Delight\Auth\TooManyRequestsException $e) {
-					return 'too many requests';
+					return 'Too many requests';
 				}
 			}
 			else if ($_POST['action'] === 'canResetPassword') {
@@ -273,7 +274,7 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 					return 'password reset is disabled';
 				}
 				catch (\Delight\Auth\TooManyRequestsException $e) {
-					return 'too many requests';
+					return 'Too many requests';
 				}
 			}
 			else if ($_POST['action'] === 'reconfirmPassword') {
@@ -284,7 +285,7 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 					return 'not logged in';
 				}
 				catch (\Delight\Auth\TooManyRequestsException $e) {
-					return 'too many requests';
+					return 'Too many requests';
 				}
 			}
 			else if ($_POST['action'] === 'changePassword') {
@@ -300,7 +301,7 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 					return 'invalid password(s)';
 				}
 				catch (\Delight\Auth\TooManyRequestsException $e) {
-					return 'too many requests';
+					return 'Too many requests';
 				}
 			}
 			else if ($_POST['action'] === 'changePasswordWithoutOldPassword') {
@@ -338,7 +339,7 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 					return 'invalid email address';
 				}
 				catch (\Delight\Auth\UserAlreadyExistsException $e) {
-					return 'email address already exists';
+					return 'Email Address already exists';
 				}
 				catch (\Delight\Auth\EmailNotVerifiedException $e) {
 					return 'account not verified';
@@ -347,7 +348,7 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 					return 'not logged in';
 				}
 				catch (\Delight\Auth\TooManyRequestsException $e) {
-					return 'too many requests';
+					return 'Too many requests';
 				}
 			}
 			else if ($_POST['action'] === 'setPasswordResetEnabled') {
@@ -410,7 +411,7 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 					return 'invalid password';
 				}
 				catch (\Delight\Auth\UserAlreadyExistsException $e) {
-					return 'email address already exists';
+					return 'Email Address already exists';
 				}
 				catch (\Delight\Auth\DuplicateUsernameException $e) {
 					return 'username already exists';
@@ -570,7 +571,7 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 						return 'unknown ID';
 					}
 					catch (\Delight\Auth\EmailNotVerifiedException $e) {
-						return 'email address not verified';
+						return 'Email Address not verified';
 					}
 				}
 				else {
@@ -588,11 +589,11 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 						return 'unknown email address';
 					}
 					catch (\Delight\Auth\EmailNotVerifiedException $e) {
-						return 'email address not verified';
+						return 'Email Address not verified';
 					}
 				}
 				else {
-					return 'Email address required';
+					return 'Email Address required';
 				}
 			}
 			else if ($_POST['action'] === 'admin.logInAsUserByUsername') {
@@ -609,7 +610,7 @@ function processRequestData(\Delight\Auth\Auth $auth) {
 						return 'ambiguous username';
 					}
 					catch (\Delight\Auth\EmailNotVerifiedException $e) {
-						return 'email address not verified';
+						return 'Email Address not verified';
 					}
 				}
 				else {

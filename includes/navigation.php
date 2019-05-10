@@ -1,5 +1,5 @@
 
-<?php 
+<?php
 
 if ($auth->isLoggedIn()) {
     $loc='Home';
@@ -7,8 +7,12 @@ if ($auth->isLoggedIn()) {
 	$menubar = '<li><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> '. $auth->getEmail().' <b class="caret"></b></a>
           <ul class="dropdown-menu">
                 <a href="'. $domainRoot .'/auth/userprofile.php"><i class="fa fa-fw fa-user"></i> Profile </a><br>
-                <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a><br>
-                <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a><br>
+                <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a><br>';
+if ($auth->hasRole(\Delight\Auth\Role::ADMIN)){
+  $menubar = $menubar .'<a href="'. $domainRoot .'/admin/"><i class="fa fa-fw fa-gear"></i> Settings</a><br>';
+}
+
+  $menubar = $menubar .'
            	<form action="" method="post" accept-charset="utf-8">
 	<input type="hidden" name="action" value="logOut" />
 	<i style="color:#337ab7;" class="fa fa-fw fa-power-off"></i> <button type="submit" class="buttonlinkclass"> Log out</button>
@@ -27,7 +31,7 @@ if ($auth->isLoggedIn()) {
 }
 else {
 	$homeBrand = '<label class="navbar-brand">'. $loc .' </label>';
-    $menubar = '	
+    $menubar = '
 		<li><a href="/rebuild/"><i class="fa fa-user"></i> Login </a></li>
 	';
 	$menuItems='';
@@ -72,7 +76,7 @@ text-decoration: underline;
     <div class="collapse navbar-collapse" id = "navbar-ex1-collapse">
       <ul class="nav navbar-right top-nav" >
         <?php echo $menubar;?>
-		
+
       </ul>
       <!--Menu Items These collapse to the responsive navigation menu on small screens -->
 		<?php echo $menuItems;?>

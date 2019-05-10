@@ -1,7 +1,11 @@
-
-  <script src="includes/scripts/jquery/jquery.min.js"></script>
-  <script src="includes/scripts/bootstrap/bootstrap.min.js"></script>
-
+<?php
+$bootstrap = $domainRoot ."/includes/scripts/bootstrap/bootstrap.min.js";
+$jqueryjs = $domainRoot ."/includes/scripts/jquery/jquery.min.js";
+echo '
+<script src="'. $jqueryjs .'"></script>
+<script src="'. $bootstrap .'"></script>
+';
+?>
 <footer class="navbar navbar-inverse navbar-fixed-bottom">
   <nav class="navbar navbar-inverse navbar-fixed-bottom">
     <div class="container-fluid">

@@ -1,20 +1,17 @@
 <?php
 
 if ($auth->check()) {
-	
+
 	echo '
-	
+
 	<div id="wrapper">
   <!-- Navigation -->
   <div id="page-wrapper">
-    <div class="container-fluid">
+    <div class="container-flex">
       <!-- Page Heading -->
-      <div class="row">
-          <div class="col-lg-12">
-          </div>
-        </div>
+
         <div class="row">
-          <div class="col-12 col-lg-12">
+          <div class="col-12 col-xs-12">
             <div class="col-2 col-xs-2">
                 <div class="card">
                   <div class="card-body">';
@@ -24,15 +21,15 @@ if ($auth->check()) {
               </div>
             </div>
             <div class="col-10 col-xs-10">';
-			
+
 			if (isset($_GET['action'])){
 				if ($_GET['action'] =='adduser'){
 					include 'useradmin/addusers.php';
 				}
 			}
-			
 
-         
+
+
 
             echo '</div>
             </div>
@@ -44,15 +41,15 @@ if ($auth->check()) {
   </div>
 </div>
 </div>';
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
 
 
 }
